@@ -1,8 +1,8 @@
 const User = require('./User');
-const Card = require('./card');
+// const Card = require('./Card');
 
-Card.belongsTo(User, {
-  foreignKey: 'user_id'
-})
+// Card.belongsTo(User, {
+//   foreignKey: 'user_id'
+// })
 
-module.exports = {User, Card}
+module.exports = {User}
