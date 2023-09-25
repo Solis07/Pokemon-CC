@@ -1,12 +1,12 @@
-const { Model, Datatype } = require('sequelize');
-const sequelize = require('../config/connection');
+// const { Model, Datatype } = require('sequelize');
+// const sequelize = require('../config/connection');
 
-class Card extends Model { }
+// class Card extends Model { }
 
-Card.init(
-  {
+// Card.init(
+//   {
 
-  },
-)
+//   },
+// )
 
-module.export = Card;
+// module.export = Card;

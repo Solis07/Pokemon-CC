@@ -1,7 +1,32 @@
 const router = require('express').Router();
 const { User } = require("../../models");
 
-router.post('/', (req, res) => {
+router.post("/signup", (req, res) => {
+  console.log(req.body);
+  User.create({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    password: req.body.password,
+  })
+    .then((dbUserData) => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.firstname = dbUserData.firstname;
+        req.session.lastname = dbUserData.lastname;
+        req.session.email = dbUserData.email;
+        req.session.loggedIn = true;
+
+        res.json(dbUserData);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post('/login', (req, res) => {
   User.findOne({
     where: {
       email: req.body.email
@@ -29,7 +54,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/', async (req, res) => {
+router.put('/delete', async (req, res) => {
   User.destroy({
     where: {
       id: req.params.id
