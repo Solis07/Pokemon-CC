@@ -9,12 +9,12 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-fetch("https://api.pokemontcg.io/v2/cards/xy2-2")
+fetch("https://pokeapi.co/api/v2/pokemon/ditto")
   .then((res) => {
     return res.json();
   })
   .then((data) => {
-    console.log(data);
+    console.table(data);
   });
 
 
