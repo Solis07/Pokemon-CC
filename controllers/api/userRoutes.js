@@ -4,17 +4,12 @@ const { User } = require("../../models");
 router.post("/signup", (req, res) => {
   console.log(req.body);
   User.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password,
   })
     .then((dbUserData) => {
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.firstname = dbUserData.firstname;
-        req.session.lastname = dbUserData.lastname;
-        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
 
         res.json(dbUserData);
@@ -45,8 +40,6 @@ router.post('/login', (req, res) => {
       }
 
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
 
         res.json({ user: dbUserData, message: "Logged In!" });
@@ -54,24 +47,14 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.put('/delete', async (req, res) => {
-  User.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbUserData => {
-      if (!dbUserData) {
-        res.status(404).json({ message: "User with this id does not exist." });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
-  res.send("User was successfully deleted");
+  } else {
+    res.status(204).end();
+  }
 });
 
 module.exports = router;
