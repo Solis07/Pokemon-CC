@@ -5,4 +5,7 @@ const User = require('./User');
 //   foreignKey: 'user_id'
 // })
 
+
+
+
 module.exports = {User}
