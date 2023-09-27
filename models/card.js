@@ -10,19 +10,7 @@ Card.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    rarity: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    },  
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,

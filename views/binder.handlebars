@@ -1,0 +1,12 @@
+
+      <div class="card-list">
+        {{#if cards.length}}
+          {{#each cards}}
+            <div class="card">
+              <img src="{{images.small}}" alt="{{name}}">
+            </div>
+          {{/each}}
+        {{else}}
+          <p></p>
+        {{/if}}
+      </div>

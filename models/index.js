@@ -11,14 +11,10 @@ Binder.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-User.hasMany(Binder, {
+User.hasOne(Binder, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 })
-
-Card.belongsTo(Binder, {
-  foreignKey: "card_id",
-});
 
 Binder.hasMany(Card, {
   foreignKey: "card_id",
