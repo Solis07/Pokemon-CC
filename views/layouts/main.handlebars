@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokemon Binder</title>
-  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../../public/css/style.css">
+  <title>Pokemon Card Collector</title>
 </head>
 <body>
   <div class="wrapper">
     <header>
       <h1>
-         <a href="/api/"> Pokemon Binder</a>
+        Pokemon CC
       </h1>
 
       <nav>
 
         {{#if loggedIn}}
         <a>Search</a>
-        <buton id="logout" class="logout-btn">Logout</buton>
+        <button id="logout" class="logout-btn">Logout</button>
         {{else}}
         <a href="/login">Login</a>
         <a href="/">SignUp</a>
+        <a href="/search">Search</a>
+        <a href="/binder">Binder</a>
         {{/if}}
 
       </nav>

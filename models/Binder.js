@@ -1,4 +1,4 @@
-const { Model, Datatype } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Binder extends Model { }
@@ -19,6 +19,13 @@ Binder.init(
       type: DataTypes.INTEGER,
       references: {
         model: "user",
+        key: "id",
+      },
+    },
+    card_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "card",
         key: "id",
       },
     },
