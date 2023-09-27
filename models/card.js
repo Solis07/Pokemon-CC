@@ -1,4 +1,4 @@
-const { Model, Datatype } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Card extends Model { }
@@ -15,7 +15,15 @@ Card.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    series: {
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    rarity: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
     },

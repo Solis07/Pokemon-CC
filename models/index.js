@@ -2,11 +2,7 @@ const User = require('./User');
 const Card = require('./Card');
 const Binder = require('./Binder');
 
-Card.hasMany(User, {
-   foreignKey: "user_id",
-});
-
-User.hasMany(Cards, {
+User.hasMany(Card, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
@@ -19,5 +15,16 @@ User.hasMany(Binder, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 })
+
+Card.belongsTo(Binder, {
+  foreignKey: "card_id",
+});
+
+Binder.hasMany(Card, {
+  foreignKey: "card_id",
+  onDelete: "CASCADE",
+});
+
+
 
 module.exports = { User, Card, Binder };
