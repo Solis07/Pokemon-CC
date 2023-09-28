@@ -1,7 +1,7 @@
 
       <h2>Pokemon Card Search</h2>
-      <form action="/binder" method="GET">
-        <input class="text box" type="text" name="name" placeholder="Enter Pokemon Name">
+      <form action="/search" method="GET">
+        <input class="text-box" type="text" name="name" placeholder="Enter Pokemon Name">
         <button class="submit-btn" type="submit">Search</button>
       </form>
       <div class="card-list">
@@ -10,8 +10,13 @@
             <div class="card">
               <img src="{{images.small}}" alt="{{name}}">
             </div>
+            <div>
+              <button class="add-to-binder-btn" data-card-id="{{card_id}}">Add to Binder</button>
+            </div>
           {{/each}}
         {{else}}
           <p></p>
         {{/if}}
       </div>
+
+     <script src="js/button.js"></script>

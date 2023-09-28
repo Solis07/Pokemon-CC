@@ -35,6 +35,13 @@ User.init(
         len: [8],
       },
     },
+    binder_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "binder",
+        key: "id",
+      },
+    },
   },
   {
     hooks: {
@@ -44,10 +51,12 @@ User.init(
       },
 
       beforeUpdate: async (updateUserData) => {
-        updateUserData.password = await bcrypt.hash(this.updateUserData.password, 10);
+        updateUserData.password = await bcrypt.hash(
+          this.updateUserData.password,
+          10
+        );
         return updateUserData;
       },
-      
     },
     sequelize,
     timestamps: false,
