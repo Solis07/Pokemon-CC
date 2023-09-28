@@ -3,6 +3,10 @@ body {
   background-color: #f0f0f0;
 }
 
+p {
+  color: red; 
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -55,3 +59,4 @@ nav a:hover {
 main {
   padding: 20px;
 }
+
