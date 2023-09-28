@@ -11,10 +11,6 @@ Binder.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

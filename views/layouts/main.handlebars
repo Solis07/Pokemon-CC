@@ -13,15 +13,16 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>
+      <h1 href="/">
         Pokemon CC
       </h1>
 
       <nav>
 
-        {{#if loggedIn}}
-        <a>Search</a>
-        <button id="logout" class="logout-btn">Logout</button>
+        {{#if logged_in}}
+        <a href="/search">Search</a>
+        <a href ="/binder">Binder</a>
+        <button href="/logout" id="logout" class="logout-btn">Logout</button>
         {{else}}
         <a href="/login">Login</a>
         <a href="/signup">SignUp</a>
@@ -41,3 +42,6 @@
   
 </body>
 </html>
+{{#if logged_in}}
+<script scr="js/logout.js"></script>
+{{/if}}
