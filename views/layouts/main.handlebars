@@ -19,8 +19,9 @@
 
       <nav>
 
-        {{#if loggedIn}}
-        <a>Search</a>
+        {{#if logged_in}}
+        <a href="/search">Search</a>
+        <a href ="/binder">Binder</a>
         <button id="logout" class="logout-btn">Logout</button>
         {{else}}
         <a href="/login">Login</a>
@@ -41,3 +42,6 @@
   
 </body>
 </html>
+{{#if logged_in}}
+<script scr="js/logout.js"></script>
+{{/if}}
