@@ -21,15 +21,23 @@ const withAuth = require("../../utils/auth");
 
 router.post("/add", withAuth, async (req, res) => {
   // Get the authenticated user's ID
-  const userId = req.user._id; // Get the authenticated user's ID
+  const userId = req.session.user_id; // Get the authenticated user's ID
   // Get the ID of the card to add
   const cardId = req.body.card_id; 
+  console.log(req.body)
 
   // Check if the card is not already in the binder
-  const user = await User.findById(userId);
-  if (user.binder.includes(cardId)) {
-    return res.status(400).json({ error: "Card already in binder" });
-  }
+  const user = await User.findOne({
+    where: {
+      id: userId,
+    },
+    include: [Binder]
+  });
+  const newUser = user.get({plain: true})
+  console.log(newUser)
+  // if (user.binder.(cardId)) {
+  //   return res.status(400).json({ error: "Card already in binder" });
+  // }
 
   // Add the card to the user's binder
   user.binder.push(cardId);
@@ -40,7 +48,7 @@ router.post("/add", withAuth, async (req, res) => {
 
 router.delete('/delete/:card_id', withAuth, async (req, res) => {
   // Get the authenticated user's ID
-  const userId = req.user._id;
+  const userId = req.session.user_id;
   // Get the ID of the card to delete
   const cardId = req.params.card_id;
 
