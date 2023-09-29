@@ -19,11 +19,8 @@ Binder.init(
       },
     },
     card_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "card",
-        key: "id",
-      },
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      defaultValue: []
     },
   },
   {

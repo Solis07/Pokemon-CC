@@ -11,7 +11,7 @@
               <img src="{{images.small}}" alt="{{name}}">
             </div>
             <div>
-              <button class="add-to-binder-btn" data-card-id="{{card_id}}">Add to Binder</button>
+              <button class="add-to-binder-btn" data-card-id="{{id}}">Add to Binder</button>
             </div>
           {{/each}}
         {{else}}
@@ -20,3 +20,6 @@
       </div>
 
      <script src="js/button.js"></script>
+       {{#if logged_in}}
+<script scr="js/logout.js"></script>
+{{/if}}

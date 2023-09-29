@@ -22,7 +22,8 @@
         {{#if logged_in}}
         <a href="/search">Search</a>
         <a href ="/binder">Binder</a>
-        <button href="/logout" id="logout" class="logout-btn">Logout</button>
+        <button id="logout" class="logout-btn">Logout</button>
+<script scr="js/logout.js"></script>
         {{else}}
         <a href="/login">Login</a>
         <a href="/signup">SignUp</a>
@@ -39,9 +40,5 @@
 
     </main>
   </div>
-  
 </body>
 </html>
-{{#if logged_in}}
-<script scr="js/logout.js"></script>
-{{/if}}
