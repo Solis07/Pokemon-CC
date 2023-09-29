@@ -1,0 +1,14 @@
+
+.teal-background {
+    background-color: teal;
+}
+
+h1, h2 {
+    color: yellow;
+}
+
+body {
+    background-color: teal;
+    margin: 0;
+    padding: 0;
+}

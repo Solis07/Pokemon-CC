@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Binder</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        #homepage {
+            text-align: center;
+        }
+        
+        #loginBtn, #signupBtn {
+            margin: 10px;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+
+        .user-form {
+            margin: 10px auto; 
+            width: 300px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .user-form label, .user-form input {
+            margin-bottom: 10px;
+        }
+
+        .user-form label {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-form input {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#homepage">Homepage</a></li>
+            <li><a href="#binder">Binder</a></li>
+            <li><a href="#search">Search</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <section id="homepage">
+            <h1>Gotta Click 'em All! Welcome To Your Virtual Pokemon Binder</h1>
+            
+            <h2>Forgot your Pokemon cards? Don't sweat! Your complete Pokemon collection is just a click away!</h2>
+            
+            <div>
+                <button id="loginBtn">Login</button>
+                <button id="signupBtn">Signup</button>
+            </div>
+
+            <div class="form-container" id="signupFormContainer" style="display: none;">
+                <form class="user-form" id="signupForm">
+                    <label>
+                        Username:
+                        <input type="text" id="newUsername" name="newUsername" required>
+                    </label>
+                    <label>
+                        Password:
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </label>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="form-container" id="loginFormContainer" style="display: none;">
+                <form class="user-form" id="loginForm">
+                    <label>
+                        Username:
+                        <input type="text" id="username" name="username" required>
+                    </label>
+                    <label>
+                        Password:
+                        <input type="password" id="password" name="password" required>
+                    </label>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="binder">
+        </section>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+        const loginFormContainer = document.getElementById("loginFormContainer");
+        const signupFormContainer = document.getElementById("signupFormContainer");
+
+        loginBtn.addEventListener("click", () => {
+            loginFormContainer.style.display = "block";
+            signupFormContainer.style.display = "none";
+        });
+
+        signupBtn.addEventListener("click", () => {
+            signupFormContainer.style.display = "block";
+            loginFormContainer.style.display = "none";
+        });
+    </script>
+</body>
+</html>
+
+
+
