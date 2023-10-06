@@ -11,10 +11,6 @@ Binder.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -23,11 +19,8 @@ Binder.init(
       },
     },
     card_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "card",
-        key: "id",
-      },
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      defaultValue: []
     },
   },
   {
